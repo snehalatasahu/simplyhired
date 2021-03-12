@@ -20,7 +20,9 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', include('user_validation.urls')),
+    path('', include('internship.urls')),
+    path('std/', include('student.urls')),
+    path('cmp/', include('company.urls')),
     path('admin/', admin.site.urls),
 ]
 if settings.DEBUG:
