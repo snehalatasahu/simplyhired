@@ -1,0 +1,306 @@
+{% load static %}
+<html>
+    <head>
+        <title>
+            Student Section
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/StudentCompanyViewDetails.css' %} " >
+
+         <!-- Bootstrap -->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+         <!-- Font-awesome -->
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+         
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+         <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    </head>
+    <body >
+
+        <section>
+            <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #fff; box-shadow: 0 8px 6px -6px black;">
+                <!-- Brand/logo -->
+                <a class="navbar-brand" href="/" style="font-size: 25px; font-weight: bold; color:#003bd1; letter-spacing: 1px;">SimpleHired</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                <!-- Links -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto" >
+                    
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Internships</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"> <i class="fa fa-pie-chart" aria-hidden="true"></i> Dashboard</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"> <i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <button type="button"  class="nav-link btn btn-danger" href="#" style="color: #fff; font-weight: bold;">Logout</button>
+                  </li>
+                </ul>
+            </div>
+              </nav>
+        </section>
+
+        <!-- ---------------- Content --------------- -->
+
+        <section>
+            <div class="container">
+                <div class="text-center mt-4 mb-3">
+                    <h3>
+                        Web Development work from home job/internship at Mahiara
+                    </h3>
+                </div>
+                <div>
+                    <div class="p-3 w-75 m-auto" style=" box-shadow: 0px 0px 2px 2px #ccc;" >
+                        <div class="row">
+                            <div class="col-md-6 col-6">
+                                <h5>
+                                    Web development
+                                </h5>
+                                <p>
+                                    TCS
+                                </p>
+                            </div>
+                            <div class="col-md-6 col-6">
+                                <img src="{% static 'images/tata.png'%}" alt="Company Name" style="width: 35px; height: 35px; float: right;" />
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <p>
+                                <i class="fa fa-home" aria-hidden="true"></i>  Work From Home
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-6 text-center">
+                                <p style="color: #333;">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i> START DATE
+                                <br>
+                                    Immediately
+                                </P>
+                            </div>
+                            <div class="col-md-3 col-6 text-center">
+                                <p style="color: #333;">
+                                    <i class="fa fa-calendar-check-o" aria-hidden="true"></i> DURATION
+                                <br>
+                                    2 Months
+                                </P>
+                            </div>
+                            <div class="col-md-3 col-6 text-center">
+                                <p style="color: #333;">
+                                    <i class="fa fa-money" aria-hidden="true"></i> STIPEND
+                                <br>
+                                    Rs. 5000/month
+                                </P>
+                            </div>
+                            <div class="col-md-3 col-6 text-center">
+                                <p style="color: #333;">
+                                    <i class="fa fa-hourglass-half" aria-hidden="true"></i> Apply By
+                                <br>
+                                    16th March 21
+                                </P>
+                            </div>
+                        </div>
+
+                        <p class="mt-3">
+                            <i class="fa fa-users" aria-hidden="true"> 15 Applicants</i> 
+                        </p>
+                        <hr />
+
+                        <div>
+                            <h5>
+                                About TCS
+                            </h5>
+                            <p>
+                                TCS is an online eCommerce brand for jewelry. Since day one, we've been working tirelessly to expand our product offerings and make our customers' experience even better. We're proud of how far we've come, yet remain committed to performing events better.
+                            </p>
+
+                            <div class="mt-4">
+                                <h5>
+                                    About the work from home internship
+                                </h5>
+                                <p>
+                                    Selected intern's day-to-day responsibilities include:
+                                </p>
+                            
+                                    <ul class="ml-4">
+                                        <li>
+                                            Developing front-end website architecture
+                                        </li>
+                                        <li>
+                                            Creating servers and databases for different kinds of projects
+                                        </li>
+                                        <li>
+                                            Designing and developing APIs
+                                        </li>
+                                        <li>
+                                            Developing back-end website applications
+                                        </li>
+                                        <li>
+                                            Developing UI on web pages
+                                        </li>
+                                        <li>
+                                            Ensuring cross-platform optimization for mobile phones
+                                        </li>
+                                        <li>
+                                            Ensuring responsiveness of applications
+                                        </li>
+                                        <li>
+                                            Working alongside graphic designers for web design features
+                                        </li>
+                                        <li>
+                                            Seeing through a project from conception to finished product
+                                        </li>
+                                        <li>
+                                            Meeting both technical and consumer needs
+                                        </li>
+                                        <li>
+                                            Staying abreast of developments in web applications and programming languages
+                                        </li>
+                                    </ul>
+                            </div>
+                            <div class="mt-4">
+                                <h5>
+                                    Who can apply
+                                </h5>
+                                <p>
+                                    Only those candidates can apply who:
+                                </p>
+                            
+                                    <ul class="ml-4">
+                                        <li>
+                                            are available for the work from home job/internship
+                                        </li>
+                                        <li>
+                                            can start the work from home job/internship between 2nd Mar'21 and 6th Apr'21
+                                        </li>
+                                        <li>
+                                            are available for duration of 2 months
+                                        </li>
+                                        <li>
+                                            have relevant skills and interests
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h5>
+                                        Perks
+                                    </h5>
+                                    <p>
+                                       Certificate
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <h5>
+                                        Number of Openings
+                                    </h5>
+                                    <p>
+                                       5
+                                    </p>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary" style="width: 150px; font-weight: bold;">
+                                        Apply
+                                    </button>
+                                </div>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- -------------------- FOOTER SECTION -------------------- -->
+    <section id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- <img src="images/logo.png" class="footer-logo"> -->
+                    <h2>
+                        SimpleHired
+                    </h2>
+                    <p style="text-align: justify;">
+                    SimplyHired helps thousands of students find great internships
+                    and be a ladder in their success.
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <h1>
+                        Features
+                    </h1>
+                    <p>
+                        Certification
+                    </p>
+                    <p>
+                        Free Apply
+                    </p>
+                    <p>
+                        Flexible Time
+                    </p>
+                    <p>
+                        Jobs for freshers
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <h1>
+                        Quick Contact
+                    </h1>
+                    <p> <i class="fa fa-phone-square"></i>
+                        +91 7377515257
+                    </p>
+                    <p> <i class="fa fa-envelope"></i>
+                        ankit4b@gmail.com
+                    </p>
+                    <p> <i class="fa fa-home"></i>
+                        Tulsinagar, Balangir
+                    </p>
+                    <p class="city">
+                        Odisha, India
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <h1>
+                        Follow Us On
+                    </h1>
+                    <p> <i class="fa fa-facebook-official"></i>
+                        Facebook
+                    </p>
+                    <p> <i class="fa fa-youtube-play"></i>
+                        Youtube
+                    </p>
+                    <p> <i class="fa fa-linkedin"></i>
+                        Linkedin
+                    </p> 
+                    <p> <i class="fa fa-twitter"></i>
+                        Twitter
+                    </p>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright">
+                Made with <i class="fa fa-heart-o"></i> by Ankit Sahu
+            </p>
+        </div>
+    </section>
+
+
+
+    </body>
+</html>

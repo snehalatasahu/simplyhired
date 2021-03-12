@@ -2,4 +2,4 @@ from django.shortcuts import render
 
 # Create your views here.
 def auth_company(request):
-    return render(request, 'company/Company.html')
+    return render(request, 'Company.html')
