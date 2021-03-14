@@ -1,183 +1,326 @@
-*, body
-{
-    padding: 0;
-    margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-
-.navbar-nav li a
-{ 
-    color: #042380 !important;
-    font-size: 18px;
-}
-
-
-
 
 #header {
-  background: url(images/background-768.jpg);
-  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/pexels-pixabay-257897.jpg");
   background-size: cover;
   background-position: center;
 }
 
-#reg-form{
-    background-color: #fff; 
-    opacity: 0.8; 
-    border-radius: 10px;
-    width: 50%;
-    margin: auto;
-    box-shadow: 0px 0px 2px 2px #ccc;
+#header section {
+  position: relative;
+  min-height: 90vh;
+  /* background-color: #557085; */
+  /* background: url(images/pexels-pixabay-257897.jpg); */
+  /* background: linear-gradient(
+        rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/pexels-pixabay-257897.jpg); */
+  /* background-size: cover;
+    background-position: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: 0.5s;
 }
 
-#login-form{
-    background-color: #fff; 
-    opacity: 0.8; 
-    border-radius: 10px;
-    width: 50%;
-    margin: auto;
-    box-shadow: 0px 0px 2px 2px #ccc;
+#header section .containerBox {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: #fff;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-/* ------------- media query -------- */
+section .containerBox .user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
 
-@media only screen and (max-width: 900px) {
-    
-    #header {
-        background: url(images/background-768.jpg);
-        height: auto;
-        background-size: cover;
-        background-position: center;
-      }
+section .containerBox .user .imgBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  transition: 0.5s;
+}
 
-    #reg-form{
-        background-color: #fff; 
-        opacity: 0.8; 
-        border-radius: 10px;
-        width: 80%;
-        margin: auto;
-        box-shadow: 0px 0px 2px 2px #ccc;
-    }
+section .containerBox .user .imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    #login-form{
-        background-color: #fff; 
-        opacity: 0.8; 
-        border-radius: 10px;
-        width: 80%;
-        margin: auto;
-        box-shadow: 0px 0px 2px 2px #ccc;
-    }
-      }
+section .containerBox .user .formBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: 0.5s;
+}
+
+section .containerBox .user .formBx h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+section .containerBox .user .formBx input {
+  width: 100%;
+  padding: 10px;
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  font-size: 14px;
+  margin: 8px 0;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+section .containerBox .user .formBx input[type="submit"] {
+  max-width: 100px;
+  background: #677eff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+section .containerBox .user .formBx .signup {
+  position: relative;
+  margin: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #555;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+section .containerBox .user .formBx .signup a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #577eff;
+}
+
+section .containerBox .signupBx {
+  pointer-events: none;
+}
+
+section .containerBox.active .signupBx {
+  pointer-events: initial;
+}
+
+section .containerBox .signupBx .formBx {
+  left: 100%;
+}
+
+section .containerBox.active .signupBx .formBx {
+  left: 0;
+}
+
+section .containerBox .signupBx .imgBx {
+  left: -100%;
+}
+
+section .containerBox.active .signupBx .imgBx {
+  left: 0;
+}
+
+section .containerBox .signinBx .formBx {
+  left: 0;
+}
+
+section .containerBox.active .signinBx .formBx {
+  left: 100;
+}
+
+section .containerBox .signinBx .imgBx {
+  left: 0;
+}
+
+section .containerBox.active .signinBx .imgBx {
+  left: -100%;
+}
+
+@media (max-width: 991px) {
+  section .containerBox {
+    max-width: 400px;
+  }
+
+  section .containerBox .imgBx {
+    display: none;
+  }
+
+  section .containerBox .user .formBx {
+    width: 100%;
+  }
+}
 
 /* ------------------------ TESTIMONIALS --------------- */
 
-#testimonials{
-    padding-top: 50px;
+#testimonials {
+  padding-top: 50px;
 }
 
-#testimonials .col-md-4{
-    padding: 10px 30px;
+#testimonials .col-md-4 {
+  padding: 10px 30px;
 }
 
-#testimonials img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50px;
-    margin-top: -40px;
-    margin-left: -30px;
-    border: 5px solid #fff;
-    margin-bottom: 30px;
+#testimonials img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  margin-top: -40px;
+  margin-left: -30px;
+  border: 5px solid #fff;
+  margin-bottom: 30px;
 }
 
-.review{
-    font-size: 16px;
-    padding:10px 10px 10px 30px ;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0,  0.2);
+.review {
+  font-size: 16px;
+  padding: 10px 10px 10px 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.2);
 }
 
-.review .fa-twitter{
-    color: #013f7e;
+.review .fa-twitter {
+  color: #013f7e;
 }
 
-#testimonials span{
-    color: #013f7e;
-    font-weight: 600;
-    font-size: 18px;
+#testimonials span {
+  color: #013f7e;
+  font-weight: 600;
+  font-size: 18px;
 }
 
-#testimonials h1{
-    margin-bottom: 20px;
-    color: #013f7e;
+#testimonials h1 {
+  margin-bottom: 20px;
+  color: #013f7e;
 }
 
-#testimonials p{
-    padding-bottom: 20px;
+#testimonials p {
+  padding-bottom: 20px;
 }
 
-#testimonials .middle{
-    margin-bottom: -30px;
-    margin-top: -30px;
+#testimonials .middle {
+  margin-bottom: -30px;
+  margin-top: -30px;
 }
-
-
-
 
 /* -------------- Footer Section --------------- */
 
-#footer{
-    margin-top: 80px;
-    padding: 70px;
-    background-color: #efefef;
-    color: #013f7e;
+#footer {
+  margin-top: 80px;
+  padding: 70px;
+  background-color: #efefef;
+  color: #013f7e;
 }
 
-.footer-logo{
-    width: 150px;
-    margin-top: 25px;
-    margin-bottom: 15px;
+.footer-logo {
+  width: 150px;
+  margin-top: 25px;
+  margin-bottom: 15px;
 }
 
-#footer h2{
-    font-size: 20px;
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
+#footer h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
-
-#footer h1{
-    font-size: 15px;
-    text-align: left;
-    margin-top: 25px;
-    margin-bottom: 25px;
+#footer h1 {
+  font-size: 15px;
+  text-align: left;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
-#footer p{
-    font-size: 12px;
-    text-align: left;
+#footer p {
+  font-size: 12px;
+  text-align: left;
 }
 
-#footer .city{
-    margin-left: 37px;
+#footer .city {
+  margin-left: 37px;
 }
 
-#footer .row .fa{
-    padding-right: 20px;
-    font-size: 15px;
+#footer .row .fa {
+  padding-right: 20px;
+  font-size: 15px;
 }
 
-#footer hr{
-    margin-top: 10px;
+#footer hr {
+  margin-top: 10px;
 }
 
-#footer .fa-heart-o{
-    color: red;
-    font-size: 17px;
+#footer .fa-heart-o {
+  color: red;
+  font-size: 17px;
 }
 
-#footer .copyright{
-    margin-bottom: -80px;
-    text-align: center;
-    font-size: 15px;
+#footer .copyright {
+  margin-bottom: -80px;
+  text-align: center;
+  font-size: 15px;
 }
 
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {
+  background-color: #4caf50;
+}
+.alert.info {
+  background-color: #2196f3;
+}
+.alert.warning {
+  background-color: #ff9800;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
