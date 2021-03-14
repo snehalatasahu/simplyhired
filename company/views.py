@@ -33,6 +33,7 @@ def signin(request):
 def auth_company(request):
 
     if request.method == 'POST':
+
         if (request.POST.get('formtype') =='signupform'):
             username = request.POST.get('email')
             name = request.POST.get('name')
@@ -40,22 +41,24 @@ def auth_company(request):
             password = request.POST.get('password')
             password1 = request.POST.get('confpassword')
 
+            print(password,'and', password1)
+
             if password == password1:
-                    if User.objects.filter(username=username).exists():
-                        messages.info(request, 'User name already exists')
-                        return redirect(auth_company)
-                        # return HttpResponse('id exists')
+                if User.objects.filter(username=username).exists():
+                    messages.info(request, 'User name already exists')
+                    return redirect(auth_company)
+                    # return HttpResponse('id exists')
 
-                    else:
-                        user = User.objects.create_user(username=username,first_name=name, password=password, email=email)
-                        user.save()
+                else:
+                    user = User.objects.create_user(username=username,first_name=name, password=password, email=email)
+                    user.save()
 
-                        newCompany = Company(user=user, name=name, email=email)
-                        newCompany.save()
-                        # messages.info(request, 'User Created Successfully')
-                        signin(request)
-                        messages.info(request, 'Sucessfully Registered and signed in.')
-                        return redirect('home')
+                    newCompany = Company(user=user, name=name, email=email)
+                    newCompany.save()
+                    # messages.info(request, 'User Created Successfully')
+                    signin(request)
+                    messages.info(request, 'Sucessfully Registered and signed in.')
+                    return redirect('home')
 
             # return redirect('login')
 
@@ -64,10 +67,13 @@ def auth_company(request):
                 messages.info(request, "Signed in successfully")
                 return redirect('home')
             else:
-                messages.info(request, "invlid credentials")
+                messages.info(request, "invlid credentials....")
                 return redirect(auth_company)
+        else:
+            messages.info(request, "invlid credentials here....")
+            return redirect(auth_company)
 
-
+            
     else:
         return render(request,'Company.html')
     
