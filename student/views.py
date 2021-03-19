@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse , JsonResponse
-from .models import Student
+from .models import Student, Resume
 from django.contrib import messages
  
  
@@ -74,5 +74,16 @@ def auth_student(request):
 
     else:
         return render(request,'Student.html')
+
+def profile(request):
+    return render(request, 'StudentProfile.html')
+
+def profileEdit(request):
+    if request.method == 'POST':
+        skill = request.POST.get('skill')
+        resume = Resume(skills=skill)
+        resume.save()
+
+    return render(request, 'StudentProfileEdit.html')
     
 

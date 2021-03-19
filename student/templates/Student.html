@@ -39,8 +39,10 @@
       href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap"
       rel="stylesheet"
     />
+    
   </head>
   <body>
+  
     <div id="header">
       <nav class="navbar navbar-light" style="border-bottom: 1px solid #aaa">
         <a
@@ -58,7 +60,7 @@
       </nav>
       {% if messages %} {% for message in messages %}
       <div class="alert info">
-        <span class="closebtn">&times;</span>
+        <div class="closebtn">&times;</div>
         {{ message }}
       </div>
       {% endfor %} {% endif %}
@@ -286,5 +288,6 @@
         };
       }
     </script>
+
   </body>
 </html>

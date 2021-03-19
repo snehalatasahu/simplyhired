@@ -98,13 +98,16 @@
             <li class="nav-item">
               <a class="nav-link" href="#footer">CONTACT US</a>
             </li>
+            <li class="nav-item">
+              <a href='logout'>LOGOUT</a>
+            </li>
           </ul>
         </div>
       </nav>
     </section>
     {% if messages %} {% for message in messages %}
     <div class="alert info">
-      <span class="closebtn">&times;</span>
+      <div class="closebtn">&times;</div>
       {{ message }}
     </div>
     {% endfor %} {% endif %}
