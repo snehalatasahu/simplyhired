@@ -7,6 +7,18 @@ from .models import Student, Resume
 from django.contrib import messages
  
  
+
+def home(request):
+    # if request.user.is_authenticated:
+    #     return render(request, 'StudentCompanyViewDetails.html')
+    return render(request, 'index.html')
+
+def internships(request):
+    return render(request, 'StudentHomePage.html')
+
+def detail(request):
+    return render(request, 'StudentCompanyViewDetails.html')
+
 def signin(request):
     password =  request.POST.get('password')
     username =  request.POST.get('username')
@@ -59,14 +71,14 @@ def auth_student(request):
                         # messages.info(request, 'User Created Successfully')
                         signin(request)
                         messages.info(request, 'Sucessfully Registered and signed in.')
-                        return redirect('home')
+                        return redirect('internships')
 
             # return redirect('login')
 
         elif (request.POST.get('formtype')=='signinform'):
             if signin(request):
                 messages.info(request, "Signed in successfully")
-                return redirect('home')
+                return redirect('internships')
             else:
                 messages.info(request, "invlid credentials")
                 return redirect(auth_student)

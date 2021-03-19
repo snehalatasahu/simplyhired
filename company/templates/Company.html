@@ -51,6 +51,15 @@
         >
       </nav>
 
+      
+    {% if messages %} {% for message in messages %}
+    <div class="alert info">
+      <div class="closebtn">&times;</div>
+      {{ message }}
+    </div>
+    {% endfor %} {% endif %}
+
+
       <section class="d-flex align-items-center">
         <div class="containerBox">
           <div class="user signinBx">
