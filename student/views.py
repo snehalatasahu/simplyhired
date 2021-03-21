@@ -4,24 +4,41 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse , JsonResponse
 from .models import Student, Resume
+from company.models import Company, Internship
 from django.contrib import messages
  
  
 
 def home(request):
-    # if request.user.is_authenticated:
-    #     return render(request, 'StudentCompanyViewDetails.html')
     return render(request, 'index.html')
 
 def internships(request):
-    return render(request, 'StudentHomePage.html')
+    if request.user.is_authenticated:
+        try:
+            if (request.user.student.isStudent == True):
+                posts = Internship.objects.order_by('-id')
+                std = Student.objects.get(email=request.user.student.email)
+                return render(request, 'StudentHomePage.html', {'posts':posts, 'student':std})
+            else:
+                messages.info(request, 'Please sign in as a student')
+                return redirect(auth_student)
+        except:
+            messages.info(request, 'Some error occured. Please signin again')
+            return redirect(auth_student)
+    else:
+        messages.info(request, 'Please signin to proceed')
+        return redirect(auth_student)
 
-def detail(request):
-    return render(request, 'StudentCompanyViewDetails.html')
+def detail(request, post_id):
+    std = Student.objects.get(email=request.user.student.email)
+    post = Internship.objects.get(id=post_id)
+    return render(request, 'StudentCompanyViewDetails.html', {'post':post, 'student':std})
 
 def signin(request):
     password =  request.POST.get('password')
     username =  request.POST.get('username')
+    if (request.POST.get('formtype') =='signupform'):
+        username =  request.POST.get('email')
 
     user = auth.authenticate(username=username,password=password)
 

@@ -82,8 +82,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
-                <i class="fa fa-user" aria-hidden="true"></i> Hey, TCS</a
-              >
+                <i class="fa fa-user" aria-hidden="true"></i>Hey, {{company.name}}</a>
             </li>
             <li class="nav-item">
               <button
@@ -100,22 +99,33 @@
                 "
                 href="#"
               >
+              <a href="/logout">
                 Logout
+              </a>
               </button>
             </li>
           </ul>
         </div>
       </nav>
     </section>
-
+{% comment %} 
     {% if messages %} {% for message in messages %}
     <div class="alert info">
       <div class="closebtn">&times;</div>
       {{ message }}
     </div>
-    {% endfor %} {% endif %}
+    {% endfor %} {% endif %} {% endcomment %}
 
+{% comment %} <!-- --------------- Content section ---------------- -->
+    <section style="margin-top: 15px">
+      <div class="container-fluid">
+      {% for post in posts %}
+      <p>{{ post.title }}</p>
+      {% endfor %}
+      </div>
+    </section> {% endcomment %}
     <!-- --------------- Content section ---------------- -->
+
 
     <section id="content" style="margin-top: 100px">
       <div class="container">
@@ -128,10 +138,11 @@
               color: #fff;
             "
           >
-            <i class="fa fa-plus" style="color: #fff"></i><a href="new-post">Post New internship</a>
+            <i class="fa fa-plus" style="color: #fff"></i><a href="new-post" style="color: #fff, text-decoration:none;">Post New internship</a>
           </button>
         </div>
 
+      {% for post in posts %}
         <div>
           <div
             class="p-3 my-5"
@@ -144,7 +155,7 @@
           >
             <div class="row">
               <div class="col-md-6 col-6">
-                <h5 class="title">Web development</h5>
+                <h5 class="title">{{post.title}}</h5>
               </div>
               <div class="col-md-6 col-6">
                 <img
@@ -157,7 +168,7 @@
 
             <div class="text-center my-2">
               <p style="color: #033f8d">
-                <i class="fa fa-home" aria-hidden="true"></i> Work From Home
+                <i class="fa fa-home" aria-hidden="true"></i> {{post.place}}
               </p>
             </div>
             <div class="row">
@@ -174,7 +185,7 @@
                   <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
                   <span style="font-weight: 600"> DURATION </span>
                   <br />
-                  2 Months
+                  {{post.duration}} months
                 </p>
               </div>
               <div class="col-md-3 col-6 text-center">
@@ -182,7 +193,7 @@
                   <i class="fa fa-money" aria-hidden="true"></i>
                   <span style="font-weight: 600"> STIPEND </span>
                   <br />
-                  Rs. 5000/month
+                  Rs. {{post.stipend}}/month
                 </p>
               </div>
               <div class="col-md-3 col-6 text-center">
@@ -203,13 +214,13 @@
                   font-weight: bold;
                 "
               >
-                <a href='post-detail'>View Details</a>
+                <a href="{% url 'post-detail' post.id %}">View Details</a>
                 <i class="fa fa-chevron-right" aria-hidden="true"></i>
               </h6>
             </div>
           </div>
         </div>
-
+      {% endfor %}
         <div>
           <div
             class="p-3 my-5"

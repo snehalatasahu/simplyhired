@@ -102,7 +102,9 @@
                 "
                 href="/logout"
               >
+              <a href='/logout'>
                 Logout
+              </a>
               </button>
             </li>
           </ul>
@@ -199,7 +201,7 @@
           <div class="form-field col-lg-6">
             <input
               name="perks"
-              id="perks"
+              id="iperks"
               class="input-text"
               type="text"
               name=""
@@ -277,7 +279,7 @@
       <input name="place" id= "place" type="hidden">
       <input name="duration" id= "duration" type="hidden">
       <input name="stipend" id= "stipend" type="hidden">
-      <input name="apply_by" id= "apply_by" type="hidden">
+      {% comment %} <input name="apply_by" id= "apply_by" type="hidden"> {% endcomment %}
       <input name="no_of_openings" id= "no_of_openings" type="hidden">
       <input name="perks" id= "perks" type="hidden">
       <input name="skills" id= "skills" type="hidden">
@@ -369,9 +371,9 @@
           document.getElementById("place").value="BBSR";
           document.getElementById("duration").value="2 months";
           document.getElementById("stipend").value=document.getElementById("istipend").value;
-          document.getElementById("apply_by").value=document.getElementById("company").value;
-          document.getElementById("no_of_openings").value=document.getElementById("openings").value;
-          document.getElementById("perks").value=document.getElementById("perks").value;
+          //document.getElementById("apply_by").value=document.getElementById("company").value;
+          document.getElementById("no_of_openings").value=10;
+          document.getElementById("perks").value=document.getElementById("iperks").value;
           document.getElementById("skills").value= validateForm() ;
           document.getElementById("about_internship").value=document.getElementById("messagea").value;
           document.getElementById("who_can_apply").value=document.getElementById("messageb").value;

@@ -14,12 +14,12 @@ class Company(models.Model):
 
 class Internship(models.Model):
     objects = models.Manager()
-    # company = models.ForeignKey( 'Company' , on_delete=models.CASCADE)
+    company = models.ForeignKey( 'Company' , on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     place = models.CharField(max_length=128)
     duration = models.CharField(max_length=128)
     stipend = models.CharField(max_length=128)
-    apply_by = models.DateField() 
+    # apply_by = models.DateField() 
     no_of_openings =  models.IntegerField()
     perks = models.CharField(max_length=128)
     skills = models.CharField(max_length=128)
@@ -29,7 +29,7 @@ class Internship(models.Model):
    
 
     def __str__(self):
-        return str(self.company)+','+str(self.title)
+        return str(self.title)
 
     class Meta:
         db_table = ''
