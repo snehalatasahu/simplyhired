@@ -153,4 +153,9 @@ def new_post(request):
     return render(request,'CompanyInternshipForm.html')
     
 
+def company_profile(request):
+    return render(request, 'CompanyProfile.html')
+
+def company_profile_edit(request):
+    return render(request, 'CompanyProfileEdit.html')
 

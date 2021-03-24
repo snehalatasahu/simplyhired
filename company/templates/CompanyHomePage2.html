@@ -49,7 +49,7 @@
         <!-- Brand/logo -->
         <a
           class="navbar-brand"
-          href="#"
+          href="{% url 'home' %}"
           style="
             font-size: 25px;
             font-weight: 600;
@@ -69,40 +69,24 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <i class="fa fa-bars" aria-hidden="true" style="color: #fff;"></i>
         </button>
 
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fa fa-pie-chart" aria-hidden="true"></i> Dashboard</a
-              >
+              <a class="nav-link" href="{% url 'new-post' %}">
+                <i class="fa fa-info" aria-hidden="true"></i> <span style="margin-left: 3px;">Post New Internship</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fa fa-user" aria-hidden="true"></i>Hey, {{company.name}}</a>
+              <a class="nav-link" href="{% url 'company-profile' %}">
+                <i class="fa fa-user" aria-hidden="true"></i> <span style="margin-left: 3px;">Hey, {{user.company.name}}</span></a>
             </li>
             <li class="nav-item">
-              <button
-                type="button"
-                class="btn"
-                style="
-                  padding: 5px;
-                  background-color: rgb(212, 51, 51);
-                  color: #fff;
-                  font-weight: 600;
-                  border-radius: 5px;
-                  font-size: 13px;
-                  margin-top: 5px; ;
-                "
-                href="#"
-              >
-              <a href="/logout">
+              <a class="btn" href="/logout" style="padding: 5px; background-color: rgb(212, 51, 51); color: #fff; font-weight: 600; border-radius: 5px; font-size: 13px; margin-top: 5px;">
                 Logout
               </a>
-              </button>
             </li>
           </ul>
         </div>
@@ -135,10 +119,10 @@
             style="
               background-image: linear-gradient(125deg, #59a0f0, #0b66dd);
               box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1);
-              color: #fff;
             "
           >
-            <i class="fa fa-plus" style="color: #fff"></i><a href="new-post" style="color: #fff, text-decoration:none;">Post New internship</a>
+            <i class="fa fa-plus" style="color: #fff;"></i>
+            <a href="new-post" style="padding-left: 10px; color: #fff; font-weight: bold; text-decoration: none;">Post New internship</a>
           </button>
         </div>
 
@@ -154,10 +138,10 @@
             "
           >
             <div class="row">
-              <div class="col-md-6 col-6">
+              <div class="col-md-8 col-8">
                 <h5 class="title">{{post.title}}</h5>
               </div>
-              <div class="col-md-6 col-6">
+              <div class="col-md-4 col-4">
                 <img
                   src="{% static 'images/tata.png'%}"
                   alt="Company Name"
@@ -214,8 +198,8 @@
                   font-weight: bold;
                 "
               >
-                <a href="{% url 'post-detail' post.id %}">View Details</a>
-                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                <a href="{% url 'post-detail' post.id %}" style="text-decoration: none; color: #833f75;">View Details</a>
+                <i class="fa fa-chevron-right" aria-hidden="true" style="color: #833f75;"></i>
               </h6>
             </div>
           </div>
