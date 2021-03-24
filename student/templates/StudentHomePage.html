@@ -3,7 +3,7 @@
   <head>
     <title>Student Section</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'css/StudentHomaPage.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/StudentHomePage.css' %}" />
 
     <!-- Bootstrap -->
     <link
@@ -41,12 +41,12 @@
     />
   </head>
   <body>
-    <section class="py-1" style="background-color: rgb(1, 23, 51)">
+    <section class="py-1 fixed-top" style="background-color: rgb(1, 23, 51)">
       <nav class="navbar navbar-expand-sm navbar-light mx-4">
         <!-- Brand/logo -->
         <a
           class="navbar-brand"
-          href="#"
+          href="{% url 'internships' %}"
           style="
             font-size: 25px;
             font-weight: 400;
@@ -66,40 +66,29 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <i class="fa fa-bars" aria-hidden="true" style="color: #fff;"></i>
         </button>
 
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Internships</a>
+              <a class="nav-link" href="{% url 'internships' %}">
+                <i class="fa fa-info" aria-hidden="true"></i> <span style="margin-left: 3px;">Internships</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fa fa-pie-chart" aria-hidden="true"></i> Dashboard</a
+              <a class="nav-link" href="{% url 'dashboard' %}">
+                <i class="fa fa-pie-chart" aria-hidden="true"></i> <span style="margin-left: 3px;">Dashboard</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'profile' %}">
+                <i class="fa fa-user" aria-hidden="true"></i> Hey, {{user.student.name}}</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/profile">
-                <i class="fa fa-user" aria-hidden="true"></i> Hey, {{student.name}}</a
-              >
-            </li>
-            <li class="nav-item">
-              <button
-                type="button"
-                style="
-                  padding: 5px;
-                  background-color: rgb(212, 51, 51);
-                  color: #fff;
-                  font-weight: 600;
-                  border-radius: 5px;
-                  font-size: 13px;
-                  margin-top: 5px;
-                "
-              >
-                <a href="/logout">Logout</a>
-              </button>
+              <a class="btn" href="/logout" style="padding: 5px; background-color: rgb(212, 51, 51); color: #fff; font-weight: 600; border-radius: 5px; font-size: 13px; margin-top: 5px;">
+                Logout
+              </a>
             </li>
           </ul>
         </div>
@@ -116,17 +105,17 @@
 
 
  <!-- --------------- Internships to be redesigned---------------- -->
-    <section style="margin-top: 15px">
+    <section style="margin-top: 80px">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3 p-3">
+          <div class="col-md-3 p-3" >
+            <div class="text-center" id="filter-icon">
+              <i class="fa fa-filter" aria-hidden="true" style="font-size: 25px;"></i>
+            </div>
+
             <div
               class="p-3"
               id="filter"
-              style="
-                border-right: solid 1px #ccc;
-                background-color: rgb(233, 238, 255);
-              "
             >
               <aside>
                 <h5>Category</h5>
@@ -368,10 +357,10 @@
             <div class="container-fluid">
             {% for post in posts %}
               <div>
-                    <div class="p-3 my-5" style="width: 100%; margin: auto; box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.1); background-color: #fff;" >
+                    <div class="p-3 my-5" style="width: 100%; margin: auto; box-shadow: 0 8px 15px 0px rgba(0, 0, 0, 0.1); background-color: #fff;" >
                         <div class="row">
                             <div class="col-md-6 col-6">
-                                <h5 class="title">
+                                <h5 class="title" style="color: #002b70;">
                                     {{post.title}}
                                 </h5>
                             </div>
@@ -417,7 +406,8 @@
                         </div>
                         <div class="mb-5 mt-3">
                             <h6 style="float: right; margin-right: 20px;  color: #a72879; font-weight: bold;">
-                                <a href="{% url 'detail' post.id %}">View Details</a><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                <a href="{% url 'detail' post.id %}" style="text-decoration: none; color: #2B5EC4;">View Details</a>
+                              <i class="fa fa-chevron-right" aria-hidden="true" style="color: #2B5EC4;"></i>
                             </h6>
                         </div>
                     </div>

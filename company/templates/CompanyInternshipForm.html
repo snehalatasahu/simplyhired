@@ -43,7 +43,7 @@
   </head>
 
   <body>
-    <section
+ <section
       class="py-1 fixed-top"
       style="background-image: linear-gradient(125deg, #a72879, #064497)"
     >
@@ -51,7 +51,7 @@
         <!-- Brand/logo -->
         <a
           class="navbar-brand"
-          href="#"
+          href="{% url 'home' %}"
           style="
             font-size: 25px;
             font-weight: 600;
@@ -71,47 +71,29 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <i class="fa fa-bars" style="color: #fff"></i>
+          <i class="fa fa-bars" aria-hidden="true" style="color: #fff;"></i>
         </button>
 
         <!-- Links -->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fa fa-pie-chart" aria-hidden="true"></i> Dashboard</a
-              >
+              <a class="nav-link" href="{% url 'new-post' %}">
+                <i class="fa fa-info" aria-hidden="true"></i> <span style="margin-left: 3px;">Post New Internship</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fa fa-user" aria-hidden="true"></i> Hey, TCS</a
-              >
+              <a class="nav-link" href="{% url 'company-profile' %}">
+                <i class="fa fa-user" aria-hidden="true"></i> <span style="margin-left: 3px;">Hey, {{user.company.name}}</span></a>
             </li>
             <li class="nav-item">
-              <button
-                type="button"
-                class="btn"
-                style="
-                  padding: 5px;
-                  background-color: rgb(212, 51, 51);
-                  color: #fff;
-                  font-weight: 600;
-                  border-radius: 5px;
-                  font-size: 13px;
-                  margin-top: 5px;
-                "
-                href="/logout"
-              >
-              <a href='/logout'>
+              <a class="btn" href="/logout" style="padding: 5px; background-color: rgb(212, 51, 51); color: #fff; font-weight: 600; border-radius: 5px; font-size: 13px; margin-top: 5px;">
                 Logout
               </a>
-              </button>
             </li>
           </ul>
         </div>
       </nav>
     </section>
-
     <!-- ----------------- FORM ---------------  -->
 
     <section class="get_in_touch" style="margin-top: 100px">
@@ -120,6 +102,7 @@
       <div class="container">
         <div class="contact-form row">
           <div class="form-field col-lg-6">
+            <lable for="name" class="label">Internship title</lable>
             <input
               name="title"
               id="name"
@@ -127,87 +110,45 @@
               type="text"
               name=""
             />
-            <lable for="name" class="label">Internship title</lable>
           </div>
+<div class="form-field col-lg-6">
+                        <lable for="openings" class="label">Number of openings</lable>
+                        <input id="openings" class="input-text" type="number" name="" />
+                    </div>
 
-          <div class="form-field col-lg-6">
-            <div class="dropdown w-100">
-              <button
-                class="btn dropdown-toggle"
-                type="button"
-                data-toggle="dropdown"
-              >
-                Type <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu text-center w-100">
-                <li>Work from Home</li>
-                <li>In office</li>
-              </ul>
-            </div>
-          </div>
+                    <div class="form-field col-lg-6">
+                        <lable for="type" class="label">Internship type</lable>
+                        <select name="Type" class="input-text w-100" style="color: #5543ca; font-size: 17px;">
+                            <option value="Work from Home">Work from Home</option>
+                            <option value="In office">In office</option>
+                        </select>
+                    </div>
 
-          <div class="form-field col-lg-6">
-            <div class="dropdown w-100">
-              <button
-                class="btn dropdown-toggle"
-                type="button"
-                data-toggle="dropdown"
-              >
-                Duration <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu text-center w-100">
-                <li>1 Month</li>
-                <li>2 Months</li>
-                <li>3 Months</li>
-                <li>4 Months</li>
-                <li>5 Months</li>
-                <li>6 Months</li>
-                <li>12 Months</li>
-              </ul>
-            </div>
-          </div>
+                    <div class="form-field col-lg-6">
+                        <lable for="duraion" class="label">Duration</lable>
+                        <select name="duration" class="input-text w-100" style="color: #5543ca; font-size: 17px;">
+                            <option value="1 month">1 month</option>
+                            <option value="2 months">2 months</option>
+                            <option value="3 months">3 months</option>
+                            <option value="4 months">4 months</option>
+                            <option value="5 months">5 months</option>
+                            <option value="6 months">6 months</option>
+                            <option value="12 months">12 months</option>
+                        </select>
+                    </div>
 
-          <div class="form-field col-lg-6">
-            <input
-              name="stipend"
-              id="istipend"
-              class="input-text"
-              type="number"
-              name=""
-            />
-            <lable for="stipend" class="label">stipend (in Rupees)</lable>
-          </div>
-          <div class="form-field col-lg-6">
-            <input
-              name="apply_by"
-              id="company"
-              class="input-text"
-              type="Date"
-              name=""
-              style="text-align: right; color: #5543ca"
-            />
-            <lable for="company" class="label">Apply By</lable>
-          </div>
-          <div class="form-field col-lg-6">
-            <input
-              name="no_of_openings"
-              id="openings"
-              class="input-text"
-              type="number"
-              name=""
-            />
-            <lable for="openings" class="label">Number of openings</lable>
-          </div>
-          <div class="form-field col-lg-6">
-            <input
-              name="perks"
-              id="iperks"
-              class="input-text"
-              type="text"
-              name=""
-            />
-            <lable for="perks" class="label">Perks</lable>
-          </div>
+                    <div class="form-field col-lg-6">
+                        <lable for="stipend" class="label">stipend (in Rupees)</lable>
+                        <input id="stipend" class="input-text" type="number" name="" />
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <lable for="company" class="label">Apply By</lable>
+                        <input id="company" class="input-text" type="Date" name="" style="text-align: right; color: #5543ca;" />
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <lable for="openings" class="label">Perks</lable>
+                        <input id="perks" class="input-text" type="text" name="" />
+                    </div>
 
           <div class="form-field col-lg-12">
             <lable style="color: #5543ca; font-size: 18px">Skills</lable>

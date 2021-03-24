@@ -57,6 +57,7 @@ body
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
+    background-color: transparent;
     /* margin-bottom: 50px; */
 }
 
@@ -71,16 +72,13 @@ body
 }
 
 .contact-form .label{
-    position: absolute;
     left: 20px;
     bottom: 11px;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 14px;
     font-weight: 400;
     color: #5543ca;
     cursor: text;
     text-transform: capitalize;
-    transition: transform 0.2s ease-in-out;
 }
 
 .contact-form .submit-btn{

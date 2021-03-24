@@ -116,3 +116,5 @@ def profileEdit(request):
     return render(request, 'StudentProfileEdit.html')
     
 
+def dashboard(request):
+    return render(request, 'StudentDashboard.html')
