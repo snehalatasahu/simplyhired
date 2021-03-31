@@ -60,7 +60,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'profile' %}">
-                <i class="fa fa-user" aria-hidden="true"></i> Hey, {{user.student.name}}</a
+                <i class="fa fa-user" aria-hidden="true"></i> Hey, {{student.name}}</a
               >
             </li>
             <li class="nav-item">
@@ -78,7 +78,7 @@
         <div class="container"  style="margin-top: 100px;">
             <div class="row d-flex justify-content-center align-items-center" id="contact_info" >
                 <div class="col-md-4 text-center">
-                    <img src="{%static './images/Ankit.jpg' %}" style="width: 200px; height: 200px; border-radius: 10px;">
+                    <img src="/media/{{resume.pic}}" style="width: 200px; height: 200px; border-radius: 10px;">
                 </div>
                 <div class="col-md-8 pt-4">
                     <div style="margin-top: 5px;">
@@ -86,22 +86,22 @@
                             <a href="profileEdit" style="text-decoration: none;"><i class="fa fa-edit" aria-hidden="true" style="float: right; font-size: 20px; color: #7737ec;"></i></a>
 
                             <h4 style="font-size: 28px; color: rgb(66, 66, 66); letter-spacing: 1px; margin-left: 15px; text-align: center;">
-                                Ankit Sahu
+                                {{student.name}}
                             </h4>
 
                         </div>
 
                         <p style="color: #444; font-size: 17px;">
-                            <i class="fa fa-university mx-1"></i> Student at College of Engineering and Technology, Bhubaneswar
+                            <i class="fa fa-university mx-1"></i> Student at {{resume.college}}
                         </p>
                         <p style="color: #666; font-size: 14px;">
-                            <i class="fa Fa-map-marker mx-2"></i> Balangir, Orissa, India
+                            <i class="fa Fa-map-marker mx-2"></i> {{resume.address}}
                         </p>
                         <p style="color: #666; font-size: 14px;">
-                            <i class="fa Fa-mobile mx-2"></i> 7377515257
+                            <i class="fa Fa-mobile mx-2"></i> {{resume.mob}}
                         </p>
                         <p style="color: #666; font-size: 14px;">
-                            <i class="fa Fa-envelope mx-2"></i> ankit4b@gmail.com
+                            <i class="fa Fa-envelope mx-2"></i> {{student.email}}
                         </p>
 
                     </div>
@@ -115,40 +115,7 @@
                             <div class="p-2" >
                                 <div id="skills">
                                         <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            HTML
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            CSS
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            JavaScript
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            C
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            C++
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            Python
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            Java
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            Bootstrap
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            Django
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            Machine Learning
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            React Native
-                                        </p>
-                                        <p style="display: inline; font-weight: 500; padding: 10px;">
-                                            React JS
+                                            {{resume.skills}}
                                         </p>
                                 </div>
                             </div>

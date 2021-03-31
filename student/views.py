@@ -108,7 +108,9 @@ def auth_student(request):
 
 @login_required
 def profile(request):
-    return render(request, 'StudentProfile.html')
+    std = request.user.student
+    resume = std.resume
+    return render(request, 'StudentProfile.html', {'resume':resume, 'student':std})
 
 @login_required
 def profileEdit(request):
