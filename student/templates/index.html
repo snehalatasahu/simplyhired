@@ -64,6 +64,7 @@
         >
           SimplyHired
         </a>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -97,6 +98,13 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#footer">CONTACT US</a>
+            </li>
+            <li class="nav-item">
+              {% if user.is_authenticated %}
+              <a href="/" style="color:#fff;">Hey, {{user.first_name}}</a>
+              {% else %}
+              Hey, guest user
+              {% endif %}
             </li>
             <li class="nav-item">
               <a href='logout'>LOGOUT</a>
@@ -153,12 +161,18 @@
               <li>Gain confidence</li>
               <li>Transition into a job</li>
             </ul>
-
             <div style="text-align: center">
             {% if user.is_authenticated %}
+              {% if user.student.isStudent %}
               <a class="btn home-btn" href="/internships">
                 Open as Student
               </a>
+              {% else %}
+              <a class="btn home-btn" href="/">
+                Open as Student
+              </a>
+              {% endif %}
+
             {% else %}
               <a class="btn home-btn" href="/auth-student">
                 Open as Student
@@ -178,9 +192,17 @@
             </ul>
             <div style="text-align: center">
             {% if user.is_authenticated %}
+
+              {% if user.company.isCompany %}
               <a class="btn home-btn" href="/cmp/">
                 Open as Company
               </a>
+              {% else %}
+              <a class="btn home-btn" href="/">
+                Open as Company
+              </a>
+              {% endif %}
+
             {% else %}
               <a class="btn home-btn" href="/cmp/auth-company">
                 Open as Company
@@ -429,6 +451,7 @@
       </div>
     </section>
 
+
     <!-- ------------------ Animation ------------------ -->
     <script src="{% static 'WOW-master/dist/wow.js'%}"></script>
     <script>
@@ -468,6 +491,8 @@
           }, 600);
         };
       }
+
+
     </script>
   </body>
 </html>

@@ -85,6 +85,8 @@ def auth_student(request):
 
                         newStudent = Student(user=user, name=name, email=email)
                         newStudent.save()
+                        stdResume = Resume(student=newStudent)
+                        stdResume.save()
                         # messages.info(request, 'User Created Successfully')
                         signin(request)
                         messages.info(request, 'Sucessfully Registered and signed in.')
@@ -104,17 +106,50 @@ def auth_student(request):
     else:
         return render(request,'Student.html')
 
+@login_required
 def profile(request):
     return render(request, 'StudentProfile.html')
 
+@login_required
 def profileEdit(request):
+
+    std = request.user.student
+    resume = std.resume
     if request.method == 'POST':
-        skill = request.POST.get('skill')
-        resume = Resume(skills=skill)
-        resume.save()
+        email = request.POST.get('email')
+        if email != std.email:
+            if User.objects.filter(username=email).exists():
+                messages.info(request, "This email is already in use")
+            else:
+                std.email = email
+                request.user.email = email
+                request.user.username = email         
+            
 
-    return render(request, 'StudentProfileEdit.html')
+        std.name = request.POST.get('name')
+        fullname = std.name.split()
+        request.user.first_name = fullname[0]
+        request.user.last_name = fullname[-1]
+
+        std.save()
+        request.user.save()
+
+        if 'image' in request.FILES:
+            std.resume.pic = request.FILES['image']  
+
+        std.resume.mob = request.POST.get('mob')
+        std.resume.address = request.POST.get('address')
+        std.resume.skills = request.POST.get('skills')
+        std.resume.college = request.POST.get('college')
+        std.resume.degree= request.POST.get('degree')
+        std.resume.grad_year = request.POST.get('grad_year')
+        std.resume.cgpa = request.POST.get('cgpa')
+        std.resume.save()
+        return redirect('profile')
+
+    print(std.name)    
+    return render(request, 'StudentProfileEdit.html', {'resume':resume, 'student':std})
     
-
+@login_required
 def dashboard(request):
     return render(request, 'StudentDashboard.html')

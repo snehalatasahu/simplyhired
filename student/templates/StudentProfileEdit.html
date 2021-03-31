@@ -89,28 +89,33 @@
 
             <div class="container">
                 <div>
-                    <form>
+                    <form
+                    name="resumeform"
+                    id="resumeform"
+                    method="POST"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
                         <div class="form-group" style="text-align: center;">
-                            <img src="{% static './images/Ankit.jpg' %}" style="width: 100px; height: 100px;"/>
+                            <img src="../media/student/{{resume.image}}" style="width: 100px; height: 100px;"/>
                             <input type="file" name="image" style="display: block; margin: auto;">
                         </div>
                         <div class="form-group">
                         <label >Name</label>
-                        <input type="text" class="form-control"  value="Ankit Sahu">
+                        <input type="text" name="name" class="form-control"  value={{student.name}}>
                         </div>
                         <div class="form-group">
                         <label >Email address</label>
-                        <input type="email" class="form-control" aria-describedby="emailHelp" value="ankit@gmail.com">
+                        <input type="email" name="email" class="form-control" aria-describedby="emailHelp" value={{student.email}}>
                         </div>
 
                         <div class="form-group">
                             <label >Mobile number</label>
-                            <input type="text" class="form-control"  value="7377515257">
+                            <input type="text" name="mob" class="form-control"  value={{resume.mob}}>
                         </div>
 
                         <div class="form-group">
                             <label >Address</label>
-                            <input type="text" class="form-control"  value="Tulsinagar, Balangir, Odisha">
+                            <input type="text" name="address" class="form-control"  value={{resume.address}}>
                         </div>
 
                         <hr>
@@ -134,6 +139,7 @@
                                 <option value="Flutter">Flutter</option>
                             </select>
                         </div>
+                        <input name="skills" id= "skills" type="hidden">
 
 
                         <hr>
@@ -141,27 +147,27 @@
                         <h5 class="text-center">Current Education Details</h5>
                         <div class="form-group">
                             <label >College Name</label>
-                            <input type="text" class="form-control"  value="College of Engineering and Technology, Bhubaneswar, Odisha">
+                            <input type="text" name="college" class="form-control"  value={{resume.college}}>
                         </div>
 
                         <div class="form-group">
                             <label >Degree</label>
-                            <input type="text" class="form-control"  value="Master of Computer Applications">
+                            <input type="text" name="degree" class="form-control"  value={{resume.degree}}>
                         </div>
 
                         <div class="form-group">
                             <label >Expected Graduation year</label>
-                            <input type="text" class="form-control"  value="2018-21">
+                            <input type="text" name="grad_year" class="form-control"  value={{resume.grad_year}}>
                         </div>
 
                         <div class="form-group">
                             <label >CGPA</label>
-                            <input type="number" class="form-control"  value="9.05">
+                            <input type="number" name="cgpa" class="form-control"  value={{resume.cgpa}}>
                         </div>
 
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" onclick="validateForm();" class="btn btn-primary">Update</button>
                         </div>
 
                     </form>
@@ -260,9 +266,10 @@
 
         function validateForm() {
             var x = $(".mul-select").select2("val");
-            console.log(x);
-
+            document.getElementById("skills").value= x;
         }
+
+        
 
     </script>
 

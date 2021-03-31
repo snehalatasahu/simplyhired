@@ -8,6 +8,7 @@ class Company(models.Model):
     name = models.CharField(default="", max_length=128)
     email = models.EmailField()
     isCompany = models.BooleanField(default=True)
+    
 
     def __str__(self):
         return self.name

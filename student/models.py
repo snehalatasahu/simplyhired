@@ -17,10 +17,13 @@ class Student(models.Model):
 class Resume(models.Model):
     objects = models.Manager()
     student = models.OneToOneField(Student, on_delete=models.CASCADE)
-    address = models.CharField(default='India', max_length=128)
-    mob = models.CharField(max_length=10)
-    skills = models.TextField()
-    pic = models.ImageField()
+    address = models.CharField(blank=True, null=True, max_length=128)
+    mob = models.CharField(blank=True, null=True, max_length=10)
+    skills = models.TextField(blank=True, null=True)
+    pic = models.ImageField(upload_to="student/", blank=True, null=True)
+    college = models.CharField(blank=True, null=True, max_length=128)
+    grad_year = models.CharField(blank=True, null=True, max_length=10)
+    cgpa = models.CharField(blank=True, null=True, max_length=5)
 
 
     class Meta:
