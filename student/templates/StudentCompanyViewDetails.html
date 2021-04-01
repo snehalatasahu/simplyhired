@@ -80,10 +80,10 @@
 
          <section class="container get_in_touch" style="margin-top: 100px;">
             <h1 class="title">
-                Web Development
+                {{ post.title }}
             </h1>
              <h4 class="text-center" style="letter-spacing: 1px; font-size: 1.3em;color: #037dce; font-weight: bold;">
-                TCS
+                {{ post.company }}
             </h4>
 
             <div class="container">
@@ -105,14 +105,14 @@
                                 <p style="color: #033f8d;">
                                     <i class="fa fa-calendar-check-o" aria-hidden="true"></i> <span style=" font-weight: 600;">  DURATION </span> 
                                 <br>
-                                    2 Months
+                                    {{ post.duration }}
                                 </P>
                             </div>
                             <div class="col-md-3 col-6 text-center">
                                 <p style="color: #033f8d;">
                                     <i class="fa fa-money" aria-hidden="true"></i> <span style=" font-weight: 600;">  STIPEND </span>  
                                 <br>
-                                    Rs. 5000/month
+                                    Rs. {{ post.stipend }}/month
                                 </P>
                             </div>
                             <div class="col-md-3 col-6 text-center">
@@ -125,7 +125,7 @@
                         </div>
 
                         <p class="mt-3" style="color: #033f8d;">
-                            <i class="fa fa-users" aria-hidden="true" style="color: #033f8d;"> 15 Applicants</i> 
+                            <i class="fa fa-users" aria-hidden="true" style="color: #033f8d;"> {{post.no_of_openings}}<span style="padding-left: 5px">Applicants</span></i>
                         </p>
                         <hr />
 
@@ -134,7 +134,7 @@
                                 Skills
                             </h5>
                             <p>
-                               HTML, CSS, JavaScript, Bootstrap, Django
+                                {{ post.skills }}
                             </p>
                         </div>
 
@@ -152,37 +152,7 @@
                         
                             <ul class="ml-4">
                                 <li>
-                                    Developing front-end website architecture
-                                </li>
-                                <li>
-                                    Creating servers and databases for different kinds of projects
-                                </li>
-                                <li>
-                                    Designing and developing APIs
-                                </li>
-                                <li>
-                                    Developing back-end website applications
-                                </li>
-                                <li>
-                                    Developing UI on web pages
-                                </li>
-                                <li>
-                                    Ensuring cross-platform optimization for mobile phones
-                                </li>
-                                <li>
-                                    Ensuring responsiveness of applications
-                                </li>
-                                <li>
-                                    Working alongside graphic designers for web design features
-                                </li>
-                                <li>
-                                    Seeing through a project from conception to finished product
-                                </li>
-                                <li>
-                                    Meeting both technical and consumer needs
-                                </li>
-                                <li>
-                                    Staying abreast of developments in web applications and programming languages
+                                    {{ post.about_internship }}
                                 </li>
                             </ul>
                         </div>
@@ -217,7 +187,7 @@
                             Perks
                         </h5>
                         <p>
-                           Certificate
+                            {{ post.perks }}
                         </p>
                     </div>
 

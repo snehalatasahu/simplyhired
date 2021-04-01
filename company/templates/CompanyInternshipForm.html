@@ -105,20 +105,20 @@
             <lable for="name" class="label">Internship title</lable>
             <input
               name="title"
-              id="name"
+              id="ititle"
               class="input-text"
               type="text"
               name=""
             />
           </div>
-<div class="form-field col-lg-6">
+                    <div class="form-field col-lg-6">
                         <lable for="openings" class="label">Number of openings</lable>
                         <input id="openings" class="input-text" type="number" name="" />
                     </div>
 
                     <div class="form-field col-lg-6">
                         <lable for="type" class="label">Internship type</lable>
-                        <select name="Type" class="input-text w-100" style="color: #5543ca; font-size: 17px;">
+                        <select name="Type" class="input-text w-100" style="color: #5543ca; font-size: 17px;" >
                             <option value="Work from Home">Work from Home</option>
                             <option value="In office">In office</option>
                         </select>
@@ -139,15 +139,15 @@
 
                     <div class="form-field col-lg-6">
                         <lable for="stipend" class="label">stipend (in Rupees)</lable>
-                        <input id="stipend" class="input-text" type="number" name="" />
+                        <input id="istipend" class="input-text" type="number" name="" />
                     </div>
                     <div class="form-field col-lg-6">
                         <lable for="company" class="label">Apply By</lable>
                         <input id="company" class="input-text" type="Date" name="" style="text-align: right; color: #5543ca;" />
                     </div>
                     <div class="form-field col-lg-6">
-                        <lable for="openings" class="label">Perks</lable>
-                        <input id="perks" class="input-text" type="text" name="" />
+                        <lable for="perks" class="label">Perks</lable>
+                        <input id="iperks" class="input-text" type="text" name="" />
                     </div>
 
           <div class="form-field col-lg-12">
@@ -183,7 +183,7 @@
               >About the internship (Roles and Responsibility)</lable
             >
             <textarea
-              id="messagea"
+              id="iabout_internship"
               type="text"
               name=""
               rows="6"
@@ -193,7 +193,7 @@
           <div class="form-field col-lg-12">
             <lable style="color: #5543ca; font-size: 18px">Who can Apply</lable>
             <textarea
-              id="messageb"
+              id="iwho_can_apply"
               type="text"
               name=""
               rows="6"
@@ -308,16 +308,16 @@
       }
 
       function fillform(){
-          document.getElementById("title").value=document.getElementById("name").value;
+          document.getElementById("title").value=document.getElementById("ititle").value;
           document.getElementById("place").value="BBSR";
           document.getElementById("duration").value="2 months";
           document.getElementById("stipend").value=document.getElementById("istipend").value;
           //document.getElementById("apply_by").value=document.getElementById("company").value;
-          document.getElementById("no_of_openings").value=10;
+          document.getElementById("no_of_openings").value=document.getElementById("openings").value;
           document.getElementById("perks").value=document.getElementById("iperks").value;
           document.getElementById("skills").value= validateForm() ;
-          document.getElementById("about_internship").value=document.getElementById("messagea").value;
-          document.getElementById("who_can_apply").value=document.getElementById("messageb").value;
+          document.getElementById("about_internship").value=document.getElementById("iabout_internship").value;
+          document.getElementById("who_can_apply").value=document.getElementById("iwho_can_apply").value;
 
           document.getElementById("postform").submit();
 
