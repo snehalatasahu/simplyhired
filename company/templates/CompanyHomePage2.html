@@ -143,7 +143,7 @@
               </div>
               <div class="col-md-4 col-4">
                 <img
-                  src="{% static 'images/tata.png'%}"
+                  src="/media/{{company.profile.pic}}"
                   alt="Company Name"
                   style="width: 35px; height: 35px; float: right"
                 />
@@ -185,7 +185,7 @@
                   <i class="fa fa-hourglass-half" aria-hidden="true"></i>
                   <span style="font-weight: 600"> Apply By </span>
                   <br />
-                  16th March 21
+                  {{post.apply_by}}
                 </p>
               </div>
             </div>

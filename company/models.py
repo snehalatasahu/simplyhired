@@ -53,7 +53,7 @@ class Internship(models.Model):
     place = models.CharField(max_length=128)
     duration = models.CharField(max_length=128)
     stipend = models.CharField(max_length=128)
-    # apply_by = models.DateField() 
+    apply_by = models.DateField() 
     no_of_openings =  models.IntegerField()
     perks = models.CharField(max_length=128)
     skills = models.CharField(max_length=128)

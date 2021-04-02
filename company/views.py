@@ -117,17 +117,17 @@ def new_post(request):
             try:
                 if (request.user.company.isCompany == True):
                     title = request.POST.get('title')
-                    place = 'bbsr'
+                    place = request.POST.get('place')
                     duration = '2 Months'
                     stipend = request.POST.get('stipend')
-                    # apply_by = request.POST.get('apply_by') 
+                    apply_by = request.POST.get('apply_by') 
                     no_of_openings =  request.POST.get('no_of_openings')
                     perks = request.POST.get('perks')
                     skills = request.POST.get('skills')
                     about_internship = request.POST.get('about_internship')
                     who_can_apply = request.POST.get('who_can_apply')
                     comp = Company.objects.get(email=request.user.company.email)
-                    newPost = Internship(company=comp, title=title, place=place, duration=duration, stipend=stipend, no_of_openings=no_of_openings, perks=perks, skills=skills, about_internship=about_internship, who_can_apply=who_can_apply)
+                    newPost = Internship(company=comp, title=title, place=place, duration=duration, stipend=stipend, apply_by=apply_by, no_of_openings=no_of_openings, perks=perks, skills=skills, about_internship=about_internship, who_can_apply=who_can_apply)
                     # newPost = Internship(company=request.user, title='title', place='place', duration='duration', stipend='stipend', apply_by='apply_by', no_of_openings='no_of_openings', perks='perks', skills='skills', about_internship='about_internship', who_can_apply='who_can_apply')
                     newPost.save()
                     return redirect(home)

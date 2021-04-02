@@ -125,7 +125,7 @@
                     </div>
 
                     <div class="form-field col-lg-6">
-                        <lable for="duraion" class="label">Duration</lable>
+                        <lable for="duration" class="label">Duration</lable>
                         <select name="duration" class="input-text w-100" style="color: #5543ca; font-size: 17px;">
                             <option value="1 month">1 month</option>
                             <option value="2 months">2 months</option>
@@ -148,6 +148,10 @@
                     <div class="form-field col-lg-6">
                         <lable for="perks" class="label">Perks</lable>
                         <input id="iperks" class="input-text" type="text" name="" />
+                    </div>
+                    <div class="form-field col-lg-6">
+                        <lable for="place" class="label">Place</lable>
+                        <input id="iplace" class="input-text" type="text" name="" />
                     </div>
 
           <div class="form-field col-lg-12">
@@ -220,7 +224,7 @@
       <input name="place" id= "place" type="hidden">
       <input name="duration" id= "duration" type="hidden">
       <input name="stipend" id= "stipend" type="hidden">
-      {% comment %} <input name="apply_by" id= "apply_by" type="hidden"> {% endcomment %}
+      <input name="apply_by" id= "apply_by" type="hidden">
       <input name="no_of_openings" id= "no_of_openings" type="hidden">
       <input name="perks" id= "perks" type="hidden">
       <input name="skills" id= "skills" type="hidden">
@@ -312,9 +316,10 @@
           document.getElementById("place").value="BBSR";
           document.getElementById("duration").value="2 months";
           document.getElementById("stipend").value=document.getElementById("istipend").value;
-          //document.getElementById("apply_by").value=document.getElementById("company").value;
+          document.getElementById("apply_by").value=document.getElementById("company").value;
           document.getElementById("no_of_openings").value=document.getElementById("openings").value;
           document.getElementById("perks").value=document.getElementById("iperks").value;
+          document.getElementById("place").value=document.getElementById("iplace").value;
           document.getElementById("skills").value= validateForm() ;
           document.getElementById("about_internship").value=document.getElementById("iabout_internship").value;
           document.getElementById("who_can_apply").value=document.getElementById("iwho_can_apply").value;
