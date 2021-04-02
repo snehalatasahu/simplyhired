@@ -25,6 +25,9 @@ class Resume(models.Model):
     grad_year = models.CharField(blank=True, null=True, max_length=10)
     cgpa = models.CharField(blank=True, null=True, max_length=5)
 
+    def __str__(self):
+        return self.student.name
+
 
     class Meta:
         db_table = ''

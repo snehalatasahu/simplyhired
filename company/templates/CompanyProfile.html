@@ -96,38 +96,38 @@
         <div class="pic">
           <img src="{%static './images/midfire.jpg' %}" alt="">
         </div>
-        <div class="name">Mindfire Solutions</div>
-        <div class="desc">Bhubaneswar, Odisha, India</div>
+        <div class="name">{{company.name}}</div>
+        <div class="desc">{{profile.address}}</div>
         <div class="sm">
-          <a href="#" class="fab fa-facebook-f" style="text-decoration: none;"></a>
-          <a href="#" class="fab fa-twitter" style="text-decoration: none;"></a>
-          <a href="#" class="fab fa-github" style="text-decoration: none;"></a>
-          <a href="#" class="fab fa-youtube" style="text-decoration: none;"></a>
+          <a href={{profile.facebook_link}} class="fab fa-facebook-f" style="text-decoration: none;"></a>
+          <a href={{profile.twitter_link}} class="fab fa-twitter" style="text-decoration: none;"></a>
+          <a href={{profile.linkedin_link}} class="fab fa-linkedin" style="text-decoration: none;"></a>
+          <a href={{profile.youtube_link}} class="fab fa-youtube" style="text-decoration: none;"></a>
         </div>
         <div class="my-2">
-          <span  style="color: #fff;"> +91 7377515257</span>
+          <span  style="color: #fff;"> +91 {{profile.mob}}</span>
         </div>
         <div class="my-2">
-          <span  style="color: #fff;"> mindsolution@gmail.com</span>
+          <span  style="color: #fff;"> {{company.email}} </span>
         </div>
         <div class="my-2">
-          <a href="#" style="color: #fff;"> www.mindsolution.com</a>
+          <a href={{profile.website}} style="color: #fff;"> {{profile.website}}</a>
         </div>
       </div>
       <div class="card-footer">
         <div class="numbers">
           <div class="item">
-            <span>500</span>
+            <span>{{profile.no_of_employees}}</span>
             Employees
           </div>
           <div class="border"></div>
           <div class="item">
-            <span>12</span>
+            <span>{{profile.internship_post}}</span>
             Internship post
           </div>
           <div class="border"></div>
           <div class="item">
-            <span>55</span>
+            <span>{{profile.interns_hired}}</span>
             Intern Hired
           </div>
         </div>
@@ -139,15 +139,7 @@
             About
           </h4>
           <p style="text-align: justify; color: #2c3a47;">
-            Mindfire Solutions is a 21 years old software development & IT services company.
-            We specialize in offering customized technological and digital solutions to enable our clients to solve
-            their mission-critical issues as well as innovate and reach their target markets with differentiated software products.
-             Over the years, Mindfire has served more than 1000+ clients belonging to a wide range of industries and spread across US,
-             Europe, Australia and Asia. Powered by an enthusiastic group of 650+ people, we enable our clients to successfully traverse
-             through their web, mobile, social, cloud and IoT journeys. Our partners include global technology leaders like IBM, Microsoft,
-              Apple, Adobe, FileMaker and Java. The company has 2 Advanced Development Centers in India along with sales offices in the US
-              and UK.
-             To know more about us, please visit http://www.mindfiresolutions.com/.
+          {{profile.about}}
           </p>
         </div>
       </div>

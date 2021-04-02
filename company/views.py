@@ -3,7 +3,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, auth
 from django.http import HttpResponse , JsonResponse
-from .models import Company, Internship
+from .models import Company, Internship, Profile
 from django.contrib import messages
  
  
@@ -59,6 +59,9 @@ def auth_company(request):
 
                     newCompany = Company(user=user, name=name, email=email)
                     newCompany.save()
+
+                    newProfile = Profile(company=newCompany)
+                    newProfile.save()
                     # messages.info(request, 'User Created Successfully')
                     signin(request)
                     messages.info(request, 'Sucessfully Registered and signed in.')
@@ -152,10 +155,57 @@ def new_post(request):
 
     return render(request,'CompanyInternshipForm.html')
     
-
+@login_required
 def company_profile(request):
-    return render(request, 'CompanyProfile.html')
+    cmp = request.user.company
+    profile = cmp.profile
+    return render(request, 'CompanyProfile.html', {'profile':profile, 'company':cmp})
 
+@login_required
 def company_profile_edit(request):
-    return render(request, 'CompanyProfileEdit.html')
+    cmp = request.user.company
+    profile = cmp.profile
+    if request.method == 'POST':
+        print(cmp)
+        email = request.POST.get('email')
+        if email != cmp.email:
+            if User.objects.filter(username=email).exists():
+                messages.info(request, "This email is already in use")
+            else:
+                cmp.email = email
+                request.user.email = email
+                request.user.username = email         
+            
+
+        cmp.name = request.POST.get('name')
+        fullname = cmp.name.split()
+        request.user.first_name = fullname[0]
+        request.user.last_name = fullname[-1]
+
+        cmp.save()
+        request.user.save()
+
+        if 'image' in request.FILES:
+            cmp.profile.pic = request.FILES['image']  
+
+        cmp.profile.mob = request.POST.get('mob')
+        cmp.profile.address = request.POST.get('address')
+        cmp.profile.website = request.POST.get('website')
+
+        cmp.profile.no_of_employees = request.POST.get('no_of_employees')
+        cmp.profile.internship_post= request.POST.get('internship_post')
+        cmp.profile.interns_hired = request.POST.get('interns_hired')
+
+        cmp.profile.facebook_link = request.POST.get('facebook_link')
+        cmp.profile.twitter_link = request.POST.get('twitter_link')
+        cmp.profile.linkedin_link = request.POST.get('linkedin_link')
+        cmp.profile.youtube_link = request.POST.get('youtube_link')
+
+        cmp.profile.about = request.POST.get('about')
+
+        cmp.profile.save()
+        return redirect('company-profile')
+  
+    return render(request, 'CompanyProfileEdit.html', {'profile':profile, 'company':cmp})
+
 

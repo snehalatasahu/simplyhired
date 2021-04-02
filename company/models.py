@@ -13,6 +13,39 @@ class Company(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        managed = True
+        verbose_name = 'Company'
+        verbose_name_plural = 'Companies'
+
+class Profile(models.Model):
+    objects = models.Manager()
+    company = models.OneToOneField(Company, on_delete=models.CASCADE)
+
+    pic = models.ImageField(upload_to="company/", blank=True, null=True)
+    mob = models.CharField(blank=True, null=True, max_length=10)
+    address = models.CharField(blank=True, null=True, max_length=128)
+    website = models.URLField(blank=True, null=True, max_length = 200)
+
+    no_of_employees = models.IntegerField(default=0, null=True)
+    internship_post = models.IntegerField(default=0, null=True)
+    interns_hired = models.IntegerField(default=0, null=True)
+
+    facebook_link = models.URLField(blank=True, null=True, max_length = 200)
+    twitter_link = models.URLField(blank=True, null=True, max_length = 200)
+    linkedin_link = models.URLField(blank=True, null=True, max_length = 200)
+    youtube_link = models.URLField(blank=True, null=True, max_length = 200)
+
+    about = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.company.name
+
+    class Meta:
+        managed = True
+        verbose_name = 'Profile'
+        verbose_name_plural = 'Profiles'
+
 class Internship(models.Model):
     objects = models.Manager()
     company = models.ForeignKey( 'Company' , on_delete=models.CASCADE)
