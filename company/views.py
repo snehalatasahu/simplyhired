@@ -91,7 +91,7 @@ def home(request):
             if (request.user.company.isCompany == True):
                 comp = Company.objects.get(email=request.user.company.email)
                 print(comp)
-                posts = Internship.objects.filter(company=comp)
+                posts = Internship.objects.filter(company=comp).order_by('-id')
                 print(posts)
                 return render(request, 'CompanyHomePage2.html', {'posts':posts, 'company':comp})
             else:
@@ -130,6 +130,7 @@ def new_post(request):
                     newPost = Internship(company=comp, title=title, place=place, duration=duration, stipend=stipend, no_of_openings=no_of_openings, perks=perks, skills=skills, about_internship=about_internship, who_can_apply=who_can_apply)
                     # newPost = Internship(company=request.user, title='title', place='place', duration='duration', stipend='stipend', apply_by='apply_by', no_of_openings='no_of_openings', perks='perks', skills='skills', about_internship='about_internship', who_can_apply='who_can_apply')
                     newPost.save()
+                    return redirect(home)
             except:
                 print('4 ', request.user, request.user.company.isCompany, request.user.is_authenticated)
                 return redirect(auth_company)
